@@ -21,11 +21,14 @@ def evens(n):
     >>> evens(-1)
     []
     '''
+    """
     even_numbers = []
     for number in range(0, n + 1):
         if number % 2 == 0:
             even_numbers.append(number)
     return even_numbers
+    """
+    return list(filter(lambda x: x % 2 == 0, map(int, range(0, n + 1))))
 
 
 def threes(n):
@@ -44,11 +47,14 @@ def threes(n):
     >>> threes(50)
     [3, 13, 23, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 43]
     '''
+    """
     digit_three = []
     for number in range(0, n + 1):
         if '3' in str(number):
             digit_three.append(number)
     return digit_three
+    """
+    return list(filter(lambda x: '3' in str(x), map(int, range(0, n + 1))))
 
 
 def small_words(text):
@@ -68,12 +74,16 @@ def small_words(text):
     >>> small_words('a big word is bad')
     ['a', 'big', 'word', 'is', 'bad']
     '''
+    """
     text = text.split()
     word_list = []
     for word in text:
         if len(word) < 5:
             word_list.append(word)
     return word_list
+    """
+    text = text.split()
+    return list(filter(lambda x: len(x) < 5, text))
 
 
 def squares(n):
@@ -90,9 +100,9 @@ def squares(n):
     >>> squares(10)
     [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     '''
+    """
     square_numbers = []
     for number in range(1, n + 1):
-        """
         if number == 1:
             square_numbers.append(number)
         else:
@@ -100,9 +110,10 @@ def squares(n):
                 square = i ** 2
                 if number == square:
                     square_numbers.append(number)
-        """
         square_numbers.append(number ** 2)
     return square_numbers
+    """
+    return list(map(lambda x: x ** 2, range(1, n + 1)))
 
 
 def lengths(strings):
@@ -117,7 +128,11 @@ def lengths(strings):
     >>> lengths(['this','is','a','test'])
     [4, 2, 1, 4]
     '''
+    """
     string_length_list = []
     for string in strings:
         string_length_list.append(len(string))
     return string_length_list
+    """
+    xs = (strings)
+    return list(map(lambda x: len(x), xs))
